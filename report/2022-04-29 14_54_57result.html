@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>接口自动化测试报告</title>
+    <meta name="generator" content="BSTestRunner 0.8.4"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    
+<style type="text/css" media="screen">
+
+/* -- css div popup ------------------------------------------------------------------------ */
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #99CCFF;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 10pt;
+    width: 1200px;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+
+#show_detail_line .label {
+    font-size: 85%;
+    cursor: pointer;
+}
+
+#show_detail_line {
+    margin: 2em auto 1em auto;
+}
+
+#total_row  { font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+</style>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class="container">
+    <div class='heading'>
+<h1>接口自动化测试报告</h1>
+<p><strong>Start Time:</strong> 2022-04-29 14:54:58</p>
+<p><strong>Duration:</strong> 0:00:00.197443</p>
+<p><strong>Status:</strong> <span class="text text-success">Pass <strong>1</strong></span></p>
+
+<p class='description'>用例执行情况如下</p>
+</div>
+
+
+    
+<p id='show_detail_line'>
+<span class="label label-primary" onclick="showCase(0)">Summary</span>
+<span class="label label-danger" onclick="showCase(1)">Failed</span>
+<span class="label label-default" onclick="showCase(2)">All</span>
+</p>
+<table id='result_table' class="table">
+    <thead>
+        <tr id='header_row'>
+            <th>Test Group/Test case</td>
+            <th>Count</td>
+            <th>Pass</td>
+            <th>Fail</td>
+            <th>Error</td>
+            <th>View</td>
+        </tr>
+    </thead>
+    <tbody>
+        
+<tr class='text text-success'>
+    <td>test_jc.TestAppSearchClass: app接口搜索、获取信息类接口</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a class="btn btn-xs btn-primary"href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_sign_params_null_0: 验证报名各字段参数为空 [with **None={'data_params': '{\n    "pageNum...",\n    "isHLtitle": "true"\n}'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: [2022-04-29 14:54:59.175790] INFO: Interface: 请求/new/hisAnnouncement/query,参数{
+    "pageNum": "1",
+    "pageSize": "30",
+    "column": "szse",
+    "tabName": "fulltext",
+    "plate": "szmb",
+    "stock": "",
+    "searchkey": "",
+    "secid": "",
+    "category": "",
+    "trade": "",
+    "seDate": "2021-10-28~2022-04-28",
+    "sortName": "",
+    "sortType": "",
+    "isHLtitle": "true"
+},状态&lt;Response [200]&gt;,
+ 响应数据{"classifiedAnnouncements":null,"totalSecurities":0,"totalAnnouncement":728587,"totalRecordNum":728587,"announcements":[{"id":null,"secCode":"300811","secName":"铂科新材","orgId":"9900035740","announcementId":"1213245302","announcementTitle":"300811铂科新材业绩说明会、路演活动等20220429","announcementTime":1651214844000,"adjunctUrl":"finalpage/2022-04-29/1213245302.PDF","adjunctSize":140,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010417||01010419||160213||160215||160217||251310||251312||251314","pageColumn":"SZCY","announcementType":"012001||012003","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000593","secName":"德龙汇能","orgId":"gssz0000593","announcementId":"1213245295","announcementTitle":"000593德龙汇能业绩说明会、路演活动信息20220429","announcementTime":1651214664000,"adjunctUrl":"finalpage/2022-04-29/1213245295.PDF","adjunctSize":141,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010417||01010419||160213||160215||160217||251310||251312||251314","pageColumn":"SZZB","announcementType":"012001||012003","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"300887","secName":"谱尼测试","orgId":"9900041379","announcementId":"1213245259","announcementTitle":"公司医学检验业务可做乙型、丙型肝炎病毒检测","announcementTime":1651214577000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213245259.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZCY","announcementType":"030403","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000818","secName":"航锦科技","orgId":"gssz0000818","announcementId":"1213244072","announcementTitle":"公司正处在传统业务向科技方向过渡发力的转型期","announcementTime":1651214575000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213244072.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZZB","announcementType":"030403","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000593","secName":"德龙汇能","orgId":"gssz0000593","announcementId":"1213245286","announcementTitle":"000593德龙汇能业绩说明会、路演活动信息20220429","announcementTime":1651214304000,"adjunctUrl":"finalpage/2022-04-29/1213245286.PDF","adjunctSize":141,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010417||01010419||160213||160215||160217||251310||251312||251314","pageColumn":"SZZB","announcementType":"012001||012003","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000090","secName":"天健集团","orgId":"gssz0000090","announcementId":"1213245268","announcementTitle":"000090天健集团调研活动信息20220429","announcementTime":1651213764000,"adjunctUrl":"finalpage/2022-04-29/1213245268.PDF","adjunctSize":268,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010419||160213||160217||251310||251314","pageColumn":"SZZB","announcementType":"012001","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002533","secName":"金杯电工","orgId":"9900016750","announcementId":"1213245025","announcementTitle":"金杯电工2021年度业绩说明会","announcementTime":1651212683000,"adjunctUrl":"finalpage/2022-04-29/1213245025.PDF","adjunctSize":167,"adjunctType":"PDF","storageTime":null,"columnId":"01010417||01010419||160215||160217||251312||251314","pageColumn":"SZZB","announcementType":"012003","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"300679","secName":"电连技术","orgId":"9900032991","announcementId":"1213245020","announcementTitle":"2022年4月28日投资者关系活动记录表","announcementTime":1651212324000,"adjunctUrl":"finalpage/2022-04-29/1213245020.PDF","adjunctSize":119,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010419||160213||160217||251310||251314","pageColumn":"SZCY","announcementType":"012001","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"","secName":null,"orgId":"-","announcementId":"1213242944","announcementTitle":"关于“丝路转债”盘中临时停牌的公告","announcementTime":1651209517000,"adjunctUrl":"finalpage/2022-04-29/1213242944.PDF","adjunctSize":39,"adjunctType":"PDF","storageTime":null,"columnId":"251201","pageColumn":"OTHER","announcementType":"0101030101||014123","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002648","secName":"卫星化学","orgId":"9900021886","announcementId":"1213242874","announcementTitle":"002648卫星化学调研活动信息20220427（一）","announcementTime":1651209084000,"adjunctUrl":"finalpage/2022-04-29/1213242874.PDF","adjunctSize":130,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010419||160213||160217||251310||251314","pageColumn":"SZZB","announcementType":"012001","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000429","secName":"粤高速Ａ","orgId":"gssz0000429","announcementId":"1213240080","announcementTitle":"2022年4月27日投资者关系活动记录表","announcementTime":1651206024000,"adjunctUrl":"finalpage/2022-04-29/1213240080.PDF","adjunctSize":133,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010419||160213||160217||251310||251314","pageColumn":"SZZB","announcementType":"012001","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"300770","secName":"新媒股份","orgId":"9900036406","announcementId":"1213239283","announcementTitle":"2022年4月28日投资者关系活动记录表","announcementTime":1651205125000,"adjunctUrl":"finalpage/2022-04-29/1213239283.PDF","adjunctSize":279,"adjunctType":"PDF","storageTime":null,"columnId":"01010415||01010419||160213||160217||251310||251314","pageColumn":"SZCY","announcementType":"012001","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002785","secName":"万里石","orgId":"9900023763","announcementId":"1213238616","announcementTitle":"与新疆地矿局、新疆地矿投资集团及泰利信签订《战略合作框架协议》","announcementTime":1651205065000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213238616.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZZB","announcementType":"03040103","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002785","secName":"万里石","orgId":"9900023763","announcementId":"1213238615","announcementTitle":"副董事长、高管邹鹏先生拟减持不超过1.45%公司股份","announcementTime":1651205062000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213238615.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZZB","announcementType":"03040105","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"300871","secName":"回盛生物","orgId":"9900039738","announcementId":"1213238614","announcementTitle":"首次回购13.71万股公司股份 耗资约211.6万元","announcementTime":1651205060000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213238614.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZCY","announcementType":"03040105","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002859","secName":"洁美科技","orgId":"9900030782","announcementId":"1213238613","announcementTitle":"副总经理邓水岩先生拟通过集中竞价交易增持100万元-150万元公司股份","announcementTime":1651205058000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213238613.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZZB","announcementType":"03040105","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"300163","secName":"先锋新材","orgId":"9900016229","announcementId":"1213238347","announcementTitle":"控股股东、实际控制人所持部分股份存在被强制平仓暨被动减持的风险","announcementTime":1651205055000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213238347.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZCY","announcementType":"03040103","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002422","secName":"科伦药业","orgId":"9900012788","announcementId":"1213238346","announcementTitle":"公司化学药品枸橼酸西地那非口崩片获得药品注册批准","announcementTime":1651205052000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213238346.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZZB","announcementType":"03040103","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002438","secName":"江苏神通","orgId":"9900012990","announcementId":"1213228627","announcementTitle":"公司在核电用蝶阀、球阀、地坑过滤器、调节阀、仪表阀、隔膜阀等细分产品上竞争力较强 预计能接到90%以上相关产品的订单","announcementTime":1651205050000,"adjunctUrl":"finalpage/2022-04-29/cninfo1213228627.js","adjunctSize":1,"adjunctType":"TXT","storageTime":null,"columnId":"255101","pageColumn":"SZZB","announcementType":"030404","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002304","secName":"洋河股份","orgId":"9900008689","announcementId":"1213237565","announcementTitle":"管理团队成员薪酬与考核管理办法","announcementTime":1651204408000,"adjunctUrl":"finalpage/2022-04-29/1213237565.PDF","adjunctSize":150,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302||251305","pageColumn":"SZZB","announcementType":"01010503||010112||013199","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000831","secName":"五矿稀土","orgId":"gssz0000831","announcementId":"1213237564","announcementTitle":"关于控股股东股权无偿划转完成工商变更登记的公告","announcementTime":1651204405000,"adjunctUrl":"finalpage/2022-04-29/1213237564.PDF","adjunctSize":73,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||011507","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"300826","secName":"测绘股份","orgId":"9900037871","announcementId":"1213237557","announcementTitle":"华泰联合证券有限责任公司关于南京市测绘勘察研究院股份有限公司2021年度跟踪报告","announcementTime":1651204403000,"adjunctUrl":"finalpage/2022-04-29/1213237557.PDF","adjunctSize":192,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||160203||160219||250301||250309||251302","pageColumn":"SZCY","announcementType":"01010701||010112||010115||0129||012917","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002907","secName":"华森制药","orgId":"9900033357","announcementId":"1213237556","announcementTitle":"关于举行2021年度业绩网上说明会的通知","announcementTime":1651204399000,"adjunctUrl":"finalpage/2022-04-29/1213237556.PDF","adjunctSize":68,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||012399","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002105","secName":"信隆健康","orgId":"9900001922","announcementId":"1213237650","announcementTitle":"关于2022年第一季度报告的更正公告","announcementTime":1651204223000,"adjunctUrl":"finalpage/2022-04-29/1213237650.PDF","adjunctSize":240,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||012701","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002105","secName":"信隆健康","orgId":"9900001922","announcementId":"1213237649","announcementTitle":"2022年第一季度报告全文（更正后）","announcementTime":1651204223000,"adjunctUrl":"finalpage/2022-04-29/1213237649.PDF","adjunctSize":367,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||010305","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002859","secName":"洁美科技","orgId":"9900030782","announcementId":"1213237646","announcementTitle":"关于公司高级管理人员计划增持公司股份的公告","announcementTime":1651204223000,"adjunctUrl":"finalpage/2022-04-29/1213237646.PDF","adjunctSize":88,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||01230350","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002942","secName":"新农股份","orgId":"gfbj0831868","announcementId":"1213237645","announcementTitle":"关于注销部分募集资金专户的公告","announcementTime":1651204223000,"adjunctUrl":"finalpage/2022-04-29/1213237645.PDF","adjunctSize":240,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||012315","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"002942","secName":"新农股份","orgId":"gfbj0831868","announcementId":"1213237644","announcementTitle":"关于使用闲置募集资金进行现金管理到期赎回的公告","announcementTime":1651204223000,"adjunctUrl":"finalpage/2022-04-29/1213237644.PDF","adjunctSize":235,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||012315","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000428","secName":"华天酒店","orgId":"gssz0000428","announcementId":"1213237641","announcementTitle":"关于召开2021年年度股东大会的通知（更正后）","announcementTime":1651204223000,"adjunctUrl":"finalpage/2022-04-29/1213237641.PDF","adjunctSize":227,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||011901","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null},{"id":null,"secCode":"000428","secName":"华天酒店","orgId":"gssz0000428","announcementId":"1213237640","announcementTitle":"关于召开2021年年度股东大会通知的更正公告","announcementTime":1651204223000,"adjunctUrl":"finalpage/2022-04-29/1213237640.PDF","adjunctSize":144,"adjunctType":"PDF","storageTime":null,"columnId":"09020202||250101||251302","pageColumn":"SZZB","announcementType":"01010503||010112||011901||012703","associateAnnouncement":null,"important":null,"batchNum":null,"announcementContent":"","orgName":null,"announcementTypeName":null}],"categoryList":null,"hasMore":true,"totalpages":24286}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    </tbody>
+    <tfoot>
+        <tr id='total_row'>
+            <td>Total</td>
+            <td>1</td>
+            <td class="text text-success">1</td>
+            <td class="text text-danger">0</td>
+            <td class="text text-warning">0</td>
+            <td>&nbsp;</td>
+        </tr>
+    </tfoot>
+</table>
+
+    <div id='ending'>&nbsp;</div>
+</div>
+
+</body>
+</html>
