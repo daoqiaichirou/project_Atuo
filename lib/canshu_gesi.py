@@ -19,8 +19,8 @@ def canshu (data):
 
         return data_new
         # print(data_new)
-a =canshu("pageNum=1&pageSize=30&column=szse&tabName=fulltext&plate=szmb&stock=&searchkey=&secid=&category=&trade=&seDate=2021-10-28~2022-04-28&sortName=&sortType=&isHLtitle=true")
-print(a)
+# a =canshu("pageNum=1&pageSize=30&column=szse&tabName=fulltext&plate=szmb&stock=&searchkey=&secid=&category=&trade=&seDate=2021-10-28~2022-04-28&sortName=&sortType=&isHLtitle=true")
+# print(a)
 # if __name__ == '__main__':
 # data = canshu("pageNum=1&pageSize=30&column=szse&tabName=fulltext&plate=szmb&stock=&searchkey=&secid=&category=&trade=&seDate=2021-10-28~2022-04-28&sortName=&sortType=&isHLtitle=true")
 # print(data)
